@@ -12,13 +12,13 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Fish } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Aquarium } from "./aquarium";
+import { ParticleSystem } from "./particle-system";
 
 export default function Navbar() {
-  const [isAquariumActive, setIsAquariumActive] = useState(false);
+  const [isParticlesActive, setIsParticlesActive] = useState(false);
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
@@ -74,20 +74,20 @@ export default function Navbar() {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => setIsAquariumActive(!isAquariumActive)}
+                onClick={() => setIsParticlesActive(!isParticlesActive)}
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
                   "size-12 rounded-xl transition-all duration-200",
-                  isAquariumActive
-                    ? "bg-blue-400/30 dark:bg-blue-500/30 shadow-lg shadow-blue-400/20"
+                  isParticlesActive
+                    ? "bg-purple-400/30 dark:bg-purple-500/30 shadow-lg shadow-purple-400/20"
                     : "hover:bg-white/50 dark:hover:bg-white/10"
                 )}
               >
-                <Fish className="size-4" />
+                <Sparkles className="size-4" />
               </motion.button>
             </TooltipTrigger>
             <TooltipContent className="glass-card border-none">
-              <p>{isAquariumActive ? "Hide Aquarium" : "Show Aquarium"}</p>
+              <p>{isParticlesActive ? "Hide Particles" : "Show Particles"}</p>
             </TooltipContent>
           </Tooltip>
         </DockIcon>
@@ -103,8 +103,8 @@ export default function Navbar() {
         </DockIcon>
       </Dock>
 
-      {/* Aquarium Component */}
-      <Aquarium isActive={isAquariumActive} />
+      {/* Particle System Component */}
+      <ParticleSystem isActive={isParticlesActive} />
     </div>
   );
 }

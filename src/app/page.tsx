@@ -10,15 +10,12 @@ const EthicsQuote = dynamic(() => import("@/components/ethics-quote").then(mod =
 const TechStack = dynamic(() => import("@/components/tech-stack").then(mod => mod.TechStack), { ssr: false });
 const TimelineItem = dynamic(() => import("@/components/resume-card").then(mod => mod.TimelineItem), { ssr: false });
 const ContactOrbiting = dynamic(() => import("@/components/contact-orbiting").then(mod => mod.ContactOrbiting), { ssr: false });
+const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: false });
 
-
-const HongKongMap = dynamic(() => import("@/components/hong-kong-map").then(mod => mod.HongKongMap), { ssr: false });
-const WorldMap = dynamic(() => import("@/components/world-map").then(mod => mod.WorldMap), { ssr: false });
 const BlurFade = dynamic(() => import("@/components/magicui/blur-fade").then(mod => mod.default), { ssr: false });
 const BlurFadeText = dynamic(() => import("@/components/magicui/blur-fade-text").then(mod => mod.default), { ssr: false });
 const ProjectCard = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), { ssr: false });
 const ResumeCard = dynamic(() => import("@/components/resume-card").then(mod => mod.ResumeCard), { ssr: false });
-const BookCard = dynamic(() => import("@/components/book-card").then(mod => mod.BookCard), { ssr: false });
 const HomeGraph = dynamic(() => import("@/components/home-graph").then(mod => mod.HomeGraph), { ssr: false });
 const UnifiedGraph = dynamic(() => import("@/components/unified-graph").then(mod => mod.UnifiedGraph), { ssr: false });
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -40,17 +37,8 @@ function GlassCard({ children, className = "", delay = 0 }: { children: React.Re
 
 export default function Page() {
   const [aboutExpanded, setAboutExpanded] = useState(false);
-  const [expandedBooks, setExpandedBooks] = useState<Record<string, boolean>>({});
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [showUnifiedGraph, setShowUnifiedGraph] = useState(false);
-
-  const toggleBookCategory = (theme: string) => {
-    setExpandedBooks(prev => ({ ...prev, [theme]: !prev[theme] }));
-  };
-
-  // Reorder projects: Craftscape HK (2) and Truth or Dare (3) first, then MEQ-Bench (0) and Gemma (1)
-  const featuredProjects = [DATA.projects[2], DATA.projects[3]];
-  const moreProjects = [DATA.projects[0], DATA.projects[1]];
 
   return (
     <main className="flex flex-col min-h-[100dvh] py-section-lg space-y-6">
@@ -78,33 +66,12 @@ export default function Page() {
                   yOffset={8}
                   text={`Hi, I'm ${DATA.name.split(" ")[0]}.`}
                 />
-
-                <BlurFade delay={BLUR_FADE_DELAY * 4}>
-                  <p className="text-sm md:text-base text-muted-foreground/70 font-light tracking-wide">
-                    鄭曦琳 · Cheng Hei Lam · /tsʰɛŋ hei lɐm/
-                  </p>
-                </BlurFade>
               </div>
 
               {/* Description - clean and elegant */}
               <BlurFade delay={BLUR_FADE_DELAY * 5}>
                 <p className="max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
                   {DATA.description}
-                </p>
-              </BlurFade>
-
-              {/* CTA - minimal and elegant */}
-              <BlurFade delay={BLUR_FADE_DELAY * 6}>
-                <p className="text-lg md:text-xl text-muted-foreground">
-                  Currently building at{" "}
-                  <a
-                    href="https://coglixlabs.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4 hover:decoration-primary/60 transition-all duration-300"
-                  >
-                    Coglix Labs
-                  </a>
                 </p>
               </BlurFade>
             </div>
@@ -164,19 +131,13 @@ export default function Page() {
                 >
                   <div className="space-y-content-sm pt-2">
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      I&apos;m a Homo sapiens born and raised in Hong Kong. I also spent a year studying in the UK and semesters in the US and France, experiences that opened my mind and shaped how I see the world.
+                      Write your personal story here. Share your background, where you're from, and what shaped your journey. This is your space to tell visitors who you are.
                     </p>
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      Before university, I was that kid obsessed with biology and completely hooked on the Olympiad. I loved exploring the mysteries of life. But after countless hours pipetting in the lab, I started to feel burnt out. I realized I loved biology, just not the endless wet lab work.
+                      Talk about your interests, what you're studying, and what excites you about technology and your field. What are your goals and aspirations?
                     </p>
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      At the same time, I discovered the beauty and speed of simulations, where you can explore complex systems without spilling a single drop. One day, I had a lightbulb moment: &ldquo;What if I could use math and code to solve big biology questions instead?&rdquo; That idea completely changed my path.
-                    </p>
-                    <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      And so, here I am, merging my love for biology with the power of math and computation.
-                    </p>
-                    <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      When I&apos;m not coding or solving equations, you&apos;ll find me kayaking, playing tennis, or on a mission to hunt down the best ramen and handmade pasta in Hong Kong (I might have tried them all by now). And when it comes to boba, it&apos;s always &ldquo;No.1&rdquo; at Comebuytea.
+                      Share your hobbies and what you do outside of work and study. This helps visitors connect with you on a personal level.
                     </p>
                   </div>
                 </motion.div>
@@ -197,7 +158,7 @@ export default function Page() {
       <section id="work">
         <GlassCard delay={BLUR_FADE_DELAY * 17}>
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-center">Cool Places I Worked At.</h2>
+            <h2 className="text-2xl font-bold text-center">Places I Worked At.</h2>
             <div className="divide-y divide-border/20">
               {DATA.technicalExperience.map((work, id) => (
                 <BlurFade key={work.company} delay={BLUR_FADE_DELAY * 18 + id * 0.02}>
@@ -290,7 +251,7 @@ export default function Page() {
                   className="overflow-hidden"
                 >
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    {[...featuredProjects, ...moreProjects].map((project, id) => (
+                    {DATA.projects.map((project, id) => (
                       <BlurFade
                         key={project.title}
                         delay={0.05 + id * 0.05}
@@ -318,134 +279,14 @@ export default function Page() {
       {/* GitHub Contributions Section */}
       <section id="github">
         <GlassCard delay={BLUR_FADE_DELAY * 24} className="p-4 md:p-6">
-          <GitHubContributions username="heilcheng" delay={0} />
+          <GitHubContributions username="yrnrkv" delay={0} />
         </GlassCard>
       </section>
 
-      {/* Books Section - Compact horizontal layout */}
-      <section id="books">
-        <GlassCard delay={BLUR_FADE_DELAY * 25}>
-          <div className="space-y-6">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold">Commonplace Book.</h2>
-              <p className="text-sm text-muted-foreground mt-2">
-                Readings that shape my worldview
-              </p>
-            </div>
-
-            {/* Compact horizontal scroll of book categories */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {DATA.books.map((themeGroup, themeId) => (
-                <BlurFade key={themeGroup.theme} delay={BLUR_FADE_DELAY * 27 + themeId * 0.05}>
-                  <button
-                    onClick={() => toggleBookCategory(themeGroup.theme)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${expandedBooks[themeGroup.theme]
-                      ? "bg-primary/20 text-primary border border-primary/30"
-                      : "bg-white/50 dark:bg-white/10 text-muted-foreground hover:text-foreground hover:bg-white/70 dark:hover:bg-white/20 border border-transparent"
-                      }`}
-                  >
-                    {themeGroup.theme}
-                    <span className="text-xs opacity-70">({themeGroup.books.length})</span>
-                  </button>
-                </BlurFade>
-              ))}
-            </div>
-
-            {/* Expanded books list - compact grid */}
-            <AnimatePresence>
-              {Object.entries(expandedBooks).some(([, isExpanded]) => isExpanded) && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4">
-                    {DATA.books
-                      .filter((themeGroup) => expandedBooks[themeGroup.theme])
-                      .reduce<Array<{ title: string; author: string; number: number }>>((acc, themeGroup) => {
-                        return [...acc, ...themeGroup.books.map(book => ({
-                          title: book.title,
-                          author: book.author,
-                          number: book.number
-                        }))];
-                      }, [])
-                      .map((book, index) => (
-                        <motion.div
-                          key={book.title}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.03 }}
-                          className="flex items-center gap-3 p-3 rounded-xl bg-white/30 dark:bg-white/5 hover:bg-white/50 dark:hover:bg-white/10 transition-colors"
-                        >
-                          <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-xs font-bold text-primary">
-                            {book.number}
-                          </span>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-sm font-medium truncate">{book.title}</p>
-                            <p className="text-xs text-muted-foreground truncate">{book.author}</p>
-                          </div>
-                        </motion.div>
-                      ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </GlassCard>
-      </section>
-
-      {/* Hong Kong Map Section */}
-      <section id="hong-kong">
-        <GlassCard delay={BLUR_FADE_DELAY * 29}>
-          <div className="space-y-content-lg">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-2xl font-bold text-center">
-                  Best parts of Hong Kong.
-                </h2>
-                <p className="text-muted-foreground md:text-lg/relaxed max-w-md mx-auto">
-                  A collection of my favorite spots and activities in the city I call home.
-                </p>
-              </div>
-            </div>
-            <HongKongMap delay={0} />
-          </div>
-        </GlassCard>
-      </section>
-
-      {/* World Map Section */}
-      <section id="world">
-        <GlassCard delay={BLUR_FADE_DELAY * 31}>
-          <div className="space-y-content-lg">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-3">
-                <h2 className="text-2xl font-bold text-center">
-                  World Map.
-                </h2>
-                <p className="text-muted-foreground md:text-lg/relaxed max-w-md mx-auto">
-                  Countries I&apos;ve visited and want to visit.
-                </p>
-              </div>
-            </div>
-            <WorldMap delay={0} />
-          </div>
-        </GlassCard>
-      </section>
-
-      {/* Duolingo section */}
-      <section id="duolingo">
-        <GlassCard delay={BLUR_FADE_DELAY * 34} className="min-h-[60vh] flex flex-col items-center justify-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#58cc02] mb-8 text-center animate-pulse">
-            Spanish or vanish?
-          </h2>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://i.pinimg.com/originals/98/59/12/98591272861e66a02eecf5dae0450c73.gif"
-            alt="Duolingo"
-            className="max-w-[300px] md:max-w-[400px] w-full"
-          />
+      {/* Contact Form Section */}
+      <section id="contact-form">
+        <GlassCard delay={BLUR_FADE_DELAY * 35}>
+          <ContactForm />
         </GlassCard>
       </section>
 
