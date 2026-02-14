@@ -8,9 +8,9 @@ export const DATA = {
   location: "Your City",
   locationLink: "https://www.google.com/maps/place/yourcity",
   description:
-    "A short description about yourself — edit this to reflect your background and interests.",
+    "A passionate developer and student exploring web technologies and building cool things.",
   summary:
-    "Write your personal story here. Talk about your background, what drives you, your hobbies, and what makes you unique.\n\nThis is your About section — make it personal and engaging.",
+    "Write your personal story here. Share your background, interests, and what drives you. This is your chance to tell visitors who you are and what you care about.",
   avatarUrl: "/me.jpeg",
 
   navbar: [
@@ -24,13 +24,13 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/yourusername",
+        url: "https://github.com/yrnrkv",
         icon: Icons.github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://linkedin.com/in/yourusername",
+        url: "https://linkedin.com/in/yourprofile",
         icon: Icons.linkedin,
         navbar: true,
       },
@@ -47,29 +47,16 @@ export const DATA = {
   technicalExperience: [
     {
       company: "Company Name",
-      href: "https://company.com",
+      href: "https://example.com",
       badges: [],
       location: "City, Country",
-      title: "Your Role / Job Title",
+      title: "Your Role / Position",
       logoUrl: "/company-logo.png",
       start: "Month Year",
       end: "Present",
       bullets: [
-        "Describe what you did at this company. Be specific about technologies used and impact.",
-        "Add more bullet points as needed."
-      ],
-    },
-    {
-      company: "Another Company",
-      href: "https://anothercompany.com",
-      badges: [],
-      location: "City, Country",
-      title: "Your Role",
-      logoUrl: "/company2-logo.png",
-      start: "Month Year",
-      end: "Month Year",
-      bullets: [
-        "Describe your responsibilities and achievements here."
+        "Describe what you did here. Replace with your actual experience.",
+        "Add more bullet points as needed.",
       ],
     },
   ],
@@ -77,59 +64,30 @@ export const DATA = {
     {
       school: "Your University",
       href: "https://university.edu",
-      degree: "Bachelor of Science in Your Major",
+      degree: "Your Degree Program",
       logoUrl: "/university-logo.png",
-      start: "2022",
-      end: "2026",
-    },
-    {
-      school: "Your High School or Previous Education",
-      href: "https://school.edu",
-      degree: "Diploma / Certificate details",
-      logoUrl: "/school-logo.png",
-      start: "2018",
-      end: "2022",
+      start: "2023",
+      end: "2027",
     },
   ],
   projects: [
     {
-      title: "Project One",
-      href: "https://github.com/yourusername/project-one",
-      dates: "2024 - Present",
+      title: "Project Name",
+      href: "https://github.com/yrnrkv/project",
+      dates: "2025 - Present",
       active: true,
       description:
         "Describe your project here. What does it do? What problem does it solve?",
       technologies: [
         "React",
+        "Next.js",
         "TypeScript",
         "Tailwind CSS",
       ],
       links: [
         {
           type: "Source",
-          href: "https://github.com/yourusername/project-one",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Project Two",
-      href: "https://github.com/yourusername/project-two",
-      dates: "2024",
-      active: true,
-      description:
-        "Another project description. Highlight the tech stack and your role.",
-      technologies: [
-        "Python",
-        "Flask",
-        "PostgreSQL",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/yourusername/project-two",
+          href: "https://github.com/yrnrkv/project",
           icon: <Icons.github className="size-3" />,
         },
       ],
