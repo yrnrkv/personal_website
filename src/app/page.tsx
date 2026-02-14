@@ -102,13 +102,11 @@ export default function Page() {
                 >
                   <div className="space-y-content-sm pt-2">
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      Write your personal story here. Share your background, where you&apos;re from, and what shaped your journey. This is your space to tell visitors who you are.
+                      I was born in small village called Kulsary in Kazakhstan. Finished top-1 math school in Kazakhstan. Ranked 1% in class. Passionate about AI, Gambling and Football. 
                     </p>
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      Talk about your interests, what you&apos;re studying, and what excites you about technology and your field. What are your goals and aspirations?
                     </p>
                     <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert leading-relaxed">
-                      Share your hobbies and what you do outside of work and study. This helps visitors connect with you on a personal level.
                     </p>
                   </div>
                 </motion.div>
