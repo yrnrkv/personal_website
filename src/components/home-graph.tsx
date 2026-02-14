@@ -25,7 +25,6 @@ const CONTENT_LINKS: Array<{ source: string; target: string; reason: string }> =
   // Core identity cluster
   { source: "hero", target: "about", reason: "introduction, personal story" },
   { source: "about", target: "books", reason: "philosophy, worldview, readings" },
-  { source: "about", target: "ethics", reason: "values, philosophical foundation" },
   
   // Professional cluster
   { source: "hero", target: "work", reason: "current role, professional identity" },
@@ -34,31 +33,23 @@ const CONTENT_LINKS: Array<{ source: string; target: string; reason: string }> =
   { source: "work", target: "tech-stack", reason: "technical skills, tools" },
   { source: "education", target: "projects", reason: "applied knowledge, research" },
   { source: "projects", target: "tech-stack", reason: "technologies used" },
-  { source: "projects", target: "github", reason: "open source contributions" },
   
   // Location & culture cluster
   { source: "about", target: "hong-kong", reason: "hometown, cultural identity" },
   { source: "hero", target: "hong-kong", reason: "based in Hong Kong" },
   { source: "education", target: "world", reason: "study abroad experiences" },
   { source: "about", target: "world", reason: "international perspective" },
-  
-  // Skills & tools cluster
-  { source: "tech-stack", target: "github", reason: "coding, open source" },
-  
-  // Values & work
-  { source: "ethics", target: "work", reason: "ethical approach to tech" },
-  { source: "ethics", target: "projects", reason: "values-driven development" },
 ];
 
 // Section categories for organization
 const CATEGORIES: Record<string, { name: string; sections: string[] }> = {
   "identity": {
     name: "About Me",
-    sections: ["hero", "about", "ethics", "books"],
+    sections: ["hero", "about", "books"],
   },
   "professional": {
     name: "Professional",
-    sections: ["work", "education", "tech-stack", "github"],
+    sections: ["work", "education", "tech-stack"],
   },
   "projects": {
     name: "Projects",
@@ -82,12 +73,10 @@ function getCategory(id: string): string {
 const SECTIONS = [
   { id: "hero", title: "Introduction", label: "intro" },
   { id: "about", title: "About Me", label: "about" },
-  { id: "ethics", title: "Ethics & Values", label: "ethics" },
   { id: "work", title: "Work Experience", label: "work" },
   { id: "education", title: "Education", label: "education" },
   { id: "tech-stack", title: "Technical Skills", label: "tech stack" },
   { id: "projects", title: "Projects", label: "projects" },
-  { id: "github", title: "Open Source", label: "github" },
   { id: "books", title: "Reading List", label: "books" },
   { id: "hong-kong", title: "Hong Kong", label: "hong kong" },
   { id: "world", title: "World Map", label: "world" },

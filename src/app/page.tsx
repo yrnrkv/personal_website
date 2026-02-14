@@ -5,8 +5,6 @@ import dynamic from "next/dynamic";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const GitHubContributions = dynamic(() => import("@/components/github-contributions").then(mod => mod.GitHubContributions), { ssr: false });
-const EthicsQuote = dynamic(() => import("@/components/ethics-quote").then(mod => mod.EthicsQuote), { ssr: false });
 const TechStack = dynamic(() => import("@/components/tech-stack").then(mod => mod.TechStack), { ssr: false });
 const TimelineItem = dynamic(() => import("@/components/resume-card").then(mod => mod.TimelineItem), { ssr: false });
 const ContactOrbiting = dynamic(() => import("@/components/contact-orbiting").then(mod => mod.ContactOrbiting), { ssr: false });
@@ -16,8 +14,6 @@ const BlurFade = dynamic(() => import("@/components/magicui/blur-fade").then(mod
 const BlurFadeText = dynamic(() => import("@/components/magicui/blur-fade-text").then(mod => mod.default), { ssr: false });
 const ProjectCard = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), { ssr: false });
 const ResumeCard = dynamic(() => import("@/components/resume-card").then(mod => mod.ResumeCard), { ssr: false });
-const HomeGraph = dynamic(() => import("@/components/home-graph").then(mod => mod.HomeGraph), { ssr: false });
-const UnifiedGraph = dynamic(() => import("@/components/unified-graph").then(mod => mod.UnifiedGraph), { ssr: false });
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
@@ -38,7 +34,6 @@ function GlassCard({ children, className = "", delay = 0 }: { children: React.Re
 export default function Page() {
   const [aboutExpanded, setAboutExpanded] = useState(false);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
-  const [showUnifiedGraph, setShowUnifiedGraph] = useState(false);
 
   return (
     <main className="flex flex-col min-h-[100dvh] py-section-lg space-y-6">
@@ -75,30 +70,6 @@ export default function Page() {
                 </p>
               </BlurFade>
             </div>
-          </div>
-        </GlassCard>
-      </section>
-
-      {/* Navigation Graph Section */}
-      <section id="graph">
-        <GlassCard delay={BLUR_FADE_DELAY * 7} className="p-4 md:p-6">
-          <div className="relative">
-            {showUnifiedGraph ? (
-              <UnifiedGraph showBlogPosts={true} />
-            ) : (
-              <HomeGraph />
-            )}
-            <button
-              onClick={() => setShowUnifiedGraph(!showUnifiedGraph)}
-              className="absolute bottom-4 right-4 z-30 flex items-center gap-2 px-3 py-2 text-xs font-medium bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg hover:scale-105 transition-all duration-200 backdrop-blur-sm"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span className="whitespace-nowrap">
-                {showUnifiedGraph ? "Sections Only" : "With Blog Posts"}
-              </span>
-            </button>
           </div>
         </GlassCard>
       </section>
@@ -144,13 +115,6 @@ export default function Page() {
               )}
             </AnimatePresence>
           </div>
-        </GlassCard>
-      </section>
-
-      {/* Ethics Quote Section */}
-      <section id="ethics">
-        <GlassCard delay={BLUR_FADE_DELAY * 15.5} className="p-4 md:p-6">
-          <EthicsQuote delay={0} />
         </GlassCard>
       </section>
 
@@ -273,13 +237,6 @@ export default function Page() {
               )}
             </AnimatePresence>
           </div>
-        </GlassCard>
-      </section>
-
-      {/* GitHub Contributions Section */}
-      <section id="github">
-        <GlassCard delay={BLUR_FADE_DELAY * 24} className="p-4 md:p-6">
-          <GitHubContributions username="yrnrkv" delay={0} />
         </GlassCard>
       </section>
 
