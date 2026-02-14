@@ -16,6 +16,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
   ],
+  
   contact: {
     email: "yernurkuandykov@gmail.com",
     tel: "+852-93522600",
