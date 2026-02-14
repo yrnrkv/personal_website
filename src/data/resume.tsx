@@ -11,7 +11,7 @@ export const DATA = {
     "Undergrad student building cool things.",
   summary:
     "I was born in small village called Kulsary in Kazakhstan. Finished top-1 math school in Kazakhstan. Ranked 1% in class. Passionate about AI, Gambling and Football. ",
-  avatarUrl: "/me.jpeg",
+  avatarUrl: "/IMG_2482.heic",
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
