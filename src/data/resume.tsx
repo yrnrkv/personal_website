@@ -77,8 +77,7 @@ export const DATA = {
       dates: "Jan 2025 - May 2025",
       active: false,
       description:
-        "CareNest is an AI toolkit that keeps low‑cost neonatal incubators running in remote clinics.
-It combines two complementary models:",
+        "CareNest is an AI toolkit that keeps low-cost neonatal incubators running in remote clinics. It combines two complementary models.",
       technologies: [
         "Python",
         "Jupyter Notebook",
