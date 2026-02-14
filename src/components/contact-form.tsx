@@ -18,7 +18,8 @@ export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // More robust email validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   };
 
@@ -69,9 +70,9 @@ export const ContactForm = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Show alert with submitted data
+      // Show alert with submitted data (demo only - not actually sent)
       alert(
-        `Form Submitted!\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
+        `Form Submitted (Demo Only)!\n\nThis is a demonstration form. In production, this would send your message.\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
       );
 
       // Reset form

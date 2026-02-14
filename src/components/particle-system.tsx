@@ -225,6 +225,8 @@ export const ParticleSystem = ({ isActive }: ParticleSystemProps) => {
         width: "100vw",
         height: "100vh",
       }}
+      aria-label="Interactive particle system"
+      role="img"
     />
   );
 };
