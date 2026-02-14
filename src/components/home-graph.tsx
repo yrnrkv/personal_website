@@ -24,7 +24,6 @@ interface GraphLink extends d3.SimulationLinkDatum<GraphNode> {
 const CONTENT_LINKS: Array<{ source: string; target: string; reason: string }> = [
   // Core identity cluster
   { source: "hero", target: "about", reason: "introduction, personal story" },
-  { source: "about", target: "books", reason: "philosophy, worldview, readings" },
   { source: "about", target: "ethics", reason: "values, philosophical foundation" },
   
   // Professional cluster
@@ -35,12 +34,6 @@ const CONTENT_LINKS: Array<{ source: string; target: string; reason: string }> =
   { source: "education", target: "projects", reason: "applied knowledge, research" },
   { source: "projects", target: "tech-stack", reason: "technologies used" },
   { source: "projects", target: "github", reason: "open source contributions" },
-  
-  // Location & culture cluster
-  { source: "about", target: "hong-kong", reason: "hometown, cultural identity" },
-  { source: "hero", target: "hong-kong", reason: "based in Hong Kong" },
-  { source: "education", target: "world", reason: "study abroad experiences" },
-  { source: "about", target: "world", reason: "international perspective" },
   
   // Skills & tools cluster
   { source: "tech-stack", target: "github", reason: "coding, open source" },
@@ -54,7 +47,7 @@ const CONTENT_LINKS: Array<{ source: string; target: string; reason: string }> =
 const CATEGORIES: Record<string, { name: string; sections: string[] }> = {
   "identity": {
     name: "About Me",
-    sections: ["hero", "about", "ethics", "books"],
+    sections: ["hero", "about", "ethics"],
   },
   "professional": {
     name: "Professional",
@@ -63,10 +56,6 @@ const CATEGORIES: Record<string, { name: string; sections: string[] }> = {
   "projects": {
     name: "Projects",
     sections: ["projects"],
-  },
-  "places": {
-    name: "Places",
-    sections: ["hong-kong", "world"],
   },
 };
 
@@ -88,9 +77,6 @@ const SECTIONS = [
   { id: "tech-stack", title: "Technical Skills", label: "tech stack" },
   { id: "projects", title: "Projects", label: "projects" },
   { id: "github", title: "Open Source", label: "github" },
-  { id: "books", title: "Reading List", label: "books" },
-  { id: "hong-kong", title: "Hong Kong", label: "hong kong" },
-  { id: "world", title: "World Map", label: "world" },
 ];
 
 // Short labels for cleaner display

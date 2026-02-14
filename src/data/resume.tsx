@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, SparklesIcon } from "lucide-react";
+import { HomeIcon } from "lucide-react";
 
 export const DATA = {
   name: "Yernur Kuandykov",
@@ -11,12 +11,11 @@ export const DATA = {
     "Undergrad student building cool things.",
   summary:
     "I was born in small village called Kulsary in Kazakhstan. Finished top-1 math school in Kazakhstan. Ranked 1% in class. Passionate about AI, Gambling and Football. ",
+  // To change your profile picture: replace the file at public/me.jpeg with your own photo
   avatarUrl: "/me.jpeg",
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
   ],
   contact: {
     email: "yernurkuandykov@gmail.com",
